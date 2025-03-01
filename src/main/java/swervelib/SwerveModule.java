@@ -249,7 +249,7 @@ public class SwerveModule implements AutoCloseable
     driveMotor.setInverted(moduleConfiguration.driveMotorInverted);
     driveMotor.setMotorBrake(true);
 
-    driveMotor.burnFlash();
+    driveMotor.burnFlash(); 
     angleMotor.burnFlash();
 
     drivePositionCache = new Cache<>(driveMotor::getPosition, 20);
