@@ -29,6 +29,7 @@ import swervelib.SwerveInputStream;
  */
 public class RobotContainer
 {
+  public final static frc.robot.subsystems.climber climber = new frc.robot.subsystems.climber();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   final         CommandXboxController driverXbox = new CommandXboxController(0);
