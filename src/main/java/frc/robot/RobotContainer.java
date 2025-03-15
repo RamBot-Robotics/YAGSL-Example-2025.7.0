@@ -142,9 +142,9 @@ public class RobotContainer
                                                                          Math.toRadians(
                                                                              90))));
       driverXbox.start().onTrue(Commands.runOnce(() -> drivebase.resetOdometry(new Pose2d(3, 3, new Rotation2d()))));
-      driverXbox.button(1).whileTrue(drivebase.sysIdDriveMotorCommand());
-      driverXbox.button(2).whileTrue(Commands.runEnd(() -> driveDirectAngleKeyboard.driveToPoseEnabled(true),
-                                                     () -> driveDirectAngleKeyboard.driveToPoseEnabled(false)));
+      // driverXbox.button(1).whileTrue(drivebase.sysIdDriveMotorCommand());
+      // driverXbox.button(2).whileTrue(Commands.runEnd(() -> driveDirectAngleKeyboard.driveToPoseEnabled(true),
+      //                                                () -> driveDirectAngleKeyboard.driveToPoseEnabled(false)));
 
     }
     if (DriverStation.isTest())
