@@ -2,11 +2,14 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix6.hardware.CANcoder;
 import com.ctre.phoenix6.sim.CANcoderSimState;
+import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+import com.revrobotics.servohub.ServoHub.ResetMode;
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkBase.PersistMode;
 
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.simulation.EncoderSim;
@@ -17,18 +20,20 @@ import frc.robot.Constants.climber;
 public class Climber extends SubsystemBase{
 
   public SparkMax mclimber = new SparkMax(climber.id, climber.neo);
-  public CANcoder encoderL = new CANcoder(climber.encoderid);
+  encoderL = m_motor.getEncoder(SparkRelativeEncoder.Type.kQuadrature, 4096);
   
   PIDController kPID = new PIDController(climber.Kp, climber.Ki, climber.Kd);
 
   int rEncoderDistance;
   double speedL;
-  double speedR;
     public void setup(){
         mclimber.clearFaults();
-        mclimber.configure(climber.config,0,0);
-        mclimber.setSmartCurrentLimit(climber.current);
-        
+        SparkBaseConfig config = new SparkMaxConfig();
+        config.idleMode(IdleMode.kBrake);
+        mclimber.configure(config,SparkBase.ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters);
+        mclimber.getEncoder().getPosition();
+
+
       }
 
     public void set(double input_speed){
@@ -38,8 +43,8 @@ public class Climber extends SubsystemBase{
 
     public void goSet(double setpoint){
       //sets modEncoderX to be a number where 0 is the bottom of the climber's state and 1 is the top
-      double modEncoderL = encoderL.getPosition().getValueAsDouble()/climber.ConversionRate; 
-      mclimber.set(kPID.calculate(encoderL.getPosition().getValueAsDouble(), setpoint));
+      double modEncoderL = mclimber.getEncoder().getPosition()/climber.ConversionRate; 
+      mclimber.set(kPID.calculate(mclimber.getEncoder().getPosition(), setpoint));
       SmartDashboard.putNumber("Climber/climber/Setpoint", setpoint);
       SmartDashboard.putNumber("Climber/climber/Setpoint", setpoint);
     }
@@ -68,10 +73,10 @@ public class Climber extends SubsystemBase{
 
      attempts--;
       mclimber.set(kPID.calculate(encoderL.getPosition().getValueAsDouble(), 1000));
-
-     
+      
+      }}
     }
-  }
+}
     public void setInd(double input_speedL, double input_speedR){
       double speedL = input_speedL * climber.power;
       mclimber.set(speedL);
