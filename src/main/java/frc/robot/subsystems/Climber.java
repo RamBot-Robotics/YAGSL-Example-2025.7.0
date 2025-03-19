@@ -10,7 +10,6 @@ import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkBase.PersistMode;
-
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.simulation.EncoderSim;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -19,9 +18,9 @@ import frc.robot.Constants.climber;
 
 public class Climber extends SubsystemBase{
 
-  public SparkMax mclimber = new SparkMax(climber.id, climber.neo);
-  encoderL = m_motor.getEncoder(SparkRelativeEncoder.Type.kQuadrature, 4096);
+  public SparkMax mclimber = new SparkMax(climber.id, climber.neo);  
   
+
   PIDController kPID = new PIDController(climber.Kp, climber.Ki, climber.Kd);
 
   int rEncoderDistance;
@@ -52,31 +51,8 @@ public class Climber extends SubsystemBase{
     
     //basically ram the climber into itself until it stops repeatedly to determine zero point for cancoders
     //somewhat like a prusa 3d printer
-    public void zero(){
-      int attempts = 2; 
-      mclimber.set(-1);
-      while (!(attempts==0)) {
+   
 
-        boolean LeftZero = false;
-        boolean RightZero = false;
-
-      while (!LeftZero || !RightZero){
-
-
-      if (mclimber.getEncoder().getVelocity() < 300){ 
-        encoderL.setPosition(0);
-        mclimber.set(0);
-        LeftZero = true;
-
-        mclimber.set(-1);
-     
-
-     attempts--;
-      mclimber.set(kPID.calculate(encoderL.getPosition().getValueAsDouble(), 1000));
-      
-      }}
-    }
-}
     public void setInd(double input_speedL, double input_speedR){
       double speedL = input_speedL * climber.power;
       mclimber.set(speedL);

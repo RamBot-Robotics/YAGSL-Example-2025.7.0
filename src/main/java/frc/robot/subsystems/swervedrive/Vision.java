@@ -189,6 +189,7 @@ public class Vision
    *
    * @param pose Estimated robot pose.
    * @return Could be empty if there isn't a good reading.
+   * // my b**** pose nastyyyyy
    */
   @Deprecated(since = "2024", forRemoval = true)
   private Optional<EstimatedRobotPose> filterPose(Optional<EstimatedRobotPose> pose)
@@ -297,7 +298,7 @@ public class Vision
 //      }
     }
   }
-
+  // why does this not even work yet one day away from comp
   /**
    * Update the {@link Field2d} to include tracked targets/
    */
@@ -319,6 +320,7 @@ public class Vision
 
     List<Pose2d> poses = new ArrayList<>();
     for (PhotonTrackedTarget target : targets)
+    // trust in me fam
     {
       if (fieldLayout.getTagPose(target.getFiducialId()).isPresent())
       {
@@ -348,6 +350,7 @@ public class Vision
      * Right Camera
      */
     RIGHT_CAM("right",
+    //help me this code is worse than my first html experience
               new Rotation3d(0, Math.toRadians(-24.094), Math.toRadians(-30)),
               new Translation3d(Units.inchesToMeters(12.056),
                                 Units.inchesToMeters(-10.981),
