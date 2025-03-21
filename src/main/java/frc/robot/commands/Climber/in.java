@@ -13,5 +13,6 @@ public class in extends Command{
         RobotContainer.Climber.set(-0.4);
     }
     public void end(){
+        RobotContainer.Climber.set(0);  
     }
 }
