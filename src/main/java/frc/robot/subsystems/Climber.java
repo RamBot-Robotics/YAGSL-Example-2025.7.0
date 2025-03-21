@@ -20,6 +20,9 @@ public class Climber extends SubsystemBase{
 
   int rEncoderDistance;
   double speedL;
+    public void periodic(){
+      
+    }
     public void setup(){
         mclimber.clearFaults();
         SparkBaseConfig config = new SparkMaxConfig();
@@ -39,8 +42,10 @@ public class Climber extends SubsystemBase{
       //sets modEncoderX to be a number where 0 is the bottom of the climber's state and 1 is the top
     //   double modEncoderL = mclimber.getEncoder().getPosition()/climber.ConversionRate; 
       mclimber.set(kPID.calculate(mclimber.getEncoder().getPosition(), setpoint));
-      SmartDashboard.putNumber("Climber/climber/Setpoint", setpoint);
-      SmartDashboard.putNumber("Climber/climber/Setpoint", setpoint);
+      SmartDashboard.putNumber("Climber/Setpoint", setpoint);
+      SmartDashboard.putNumber("Climber/Set Speed", speedL);
+      SmartDashboard.putNumber("Climber/MC Speed", mclimber.getAppliedOutput());
+      SmartDashboard.putNumber("Climber/Encoder", mclimber.getEncoder().getPosition());
     }
 
     

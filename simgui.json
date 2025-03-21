@@ -6,6 +6,11 @@
           "open": false
         }
       },
+      "SPARK MAX [30]": {
+        "header": {
+          "open": true
+        }
+      },
       "SPARK MAX [4]": {
         "header": {
           "open": false
@@ -68,12 +73,12 @@
     },
     "windows": {
       "/SmartDashboard/Field": {
-        "bottom": 1476,
-        "height": 8.210550308227539,
-        "left": 150,
-        "right": 2961,
-        "top": 79,
-        "width": 16.541748046875,
+        "bottom": 1638,
+        "height": 8.051901817321777,
+        "left": 534,
+        "right": 3466,
+        "top": 291,
+        "width": 17.54825210571289,
         "window": {
           "visible": true
         }
@@ -93,6 +98,15 @@
     }
   },
   "NetworkTables Info": {
+    "Clients": {
+      "open": true
+    },
+    "Connections": {
+      "open": true
+    },
+    "Server": {
+      "open": true
+    },
     "visible": true
   },
   "Plot": {
