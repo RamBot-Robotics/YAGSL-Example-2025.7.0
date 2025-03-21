@@ -45,12 +45,10 @@ public class Climber extends SubsystemBase{
       double modEncoderL = mclimber.getEncoder().getPosition()/climber.ConversionRate; 
       mclimber.set(kPID.calculate(mclimber.getEncoder().getPosition(), setpoint));
       SmartDashboard.putNumber("Climber/climber/Setpoint", setpoint);
-      SmartDashboard.putNumber("Climber/climber/Setpoint", setpoint);
     }
 
     
-    //basically ram the climber into itself until it stops repeatedly to determine zero point for cancoders
-    //somewhat like a prusa 3d printer
+
    
 
     public void setInd(double input_speedL, double input_speedR){
