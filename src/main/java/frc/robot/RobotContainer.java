@@ -176,7 +176,7 @@ public class RobotContainer
 
       driverXbox.povLeft().whileTrue(Commands.none());
       driverXbox.povRight().whileTrue(Commands.none());
-      driverXbox.povUp().whileTrue(Commands.none());
+      driverXbox.povUp().whileTrue(new out());
       driverXbox.povUpLeft().whileTrue(Commands.none());
       driverXbox.povUpRight().whileTrue(Commands.none());
       driverXbox.povDown().whileTrue(new in());
