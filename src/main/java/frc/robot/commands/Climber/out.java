@@ -10,7 +10,7 @@ public class out extends Command{
         addRequirements(RobotContainer.Climber);
     }
     public void execute(){
-        RobotContainer.Climber.set(0.4);
+        RobotContainer.Climber.set(01);
     }
     public void end(){
         RobotContainer.Climber.set(0);
