@@ -56,7 +56,7 @@ public final class Constants
   }
    public static class climber{
     public static SparkLowLevel.MotorType neo = MotorType.kBrushless;
-    public static int id  = 18;
+    public static int id  = 30;
     public static double power  = 1; // Output speed multiplier  -1 to 1
     public static int current = 40;
     public static IdleMode idle = IdleMode.kBrake;

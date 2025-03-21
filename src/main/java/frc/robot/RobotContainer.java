@@ -21,6 +21,7 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
 import swervelib.SwerveInputStream;
+import frc.robot.commands.Climber.*;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a "declarative" paradigm, very
@@ -168,8 +169,19 @@ public class RobotContainer
                               );
       driverXbox.start().whileTrue(Commands.none());
       driverXbox.back().whileTrue(Commands.none());
-      driverXbox.leftBumper().whileTrue(Commands.runOnce(drivebase::lock, drivebase).repeatedly());
+      driverXbox.leftBumper().whileTrue(Commands.none());
       driverXbox.rightBumper().onTrue(Commands.none());
+
+      //d-pad
+
+      driverXbox.povLeft().whileTrue(Commands.none());
+      driverXbox.povRight().whileTrue(Commands.none());
+      driverXbox.povUp().whileTrue(Commands.none());
+      driverXbox.povUpLeft().whileTrue(Commands.none());
+      driverXbox.povUpRight().whileTrue(Commands.none());
+      driverXbox.povDown().whileTrue(new in());
+      driverXbox.povDownLeft().whileTrue(Commands.none());
+      driverXbox.povDownRight().whileTrue(Commands.none());
     }
 
   }
