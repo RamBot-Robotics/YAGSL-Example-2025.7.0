@@ -65,4 +65,23 @@ public final class Constants
     public static double Kd = 0;
     public static double ConversionRate = 1024; //Div encoder value by this so 0 = bottom of climber & 1 = top
   }
+  public static class wrist{
+    public static SparkLowLevel.MotorType neo = MotorType.kBrushless;
+    public static int id  = 30;
+    public static double power  = 1; // Output speed multiplier  -1 to 1
+    public static int current = 40;
+    public static IdleMode idle = IdleMode.kBrake;
+    public static int encoderid = 22;
+    public static double Kp = .5;
+    public static double Ki = 0;
+    public static double Kd = 0;
+    public static double ConversionRate = 1024; //Div encoder value by this so 0 = bottom of climber & 1 = top
+  }
+  public static class effector{
+    public static SparkLowLevel.MotorType neo = MotorType.kBrushless;
+    public static int id  = 30;
+    public static double power  = 1; // Output speed multiplier  -1 to 1
+    public static int current = 40;
+    public static IdleMode idle = IdleMode.kBrake;
+  }
 }
