@@ -5,10 +5,10 @@ import com.revrobotics.spark.config.SparkBaseConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkClosedLoopController;
 
-import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
@@ -42,6 +42,10 @@ SparkClosedLoopController m_controller = mWrist.getClosedLoopController();
     public void effectorSet(double input_speed){
       double speed = input_speed * climber.power;
       mEffector.set(speed);
+    }
+    public void wristSetpoint(double input_setpoint){
+      m_controller.setReference(input_setpoint, ControlType.kPosition);
+
     }
     
    

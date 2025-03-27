@@ -31,6 +31,7 @@ import frc.robot.commands.Climber.*;
 public class RobotContainer
 {
   public final static frc.robot.subsystems.Climber Climber = new frc.robot.subsystems.Climber();
+  public final static frc.robot.subsystems.Algae Algae = new frc.robot.subsystems.Algae();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   final         CommandXboxController driverXbox = new CommandXboxController(0);
